@@ -18,3 +18,5 @@ nb-configuration.xml
 # Intellij Files #
 .idea
 **/*.iml
+
+*.log

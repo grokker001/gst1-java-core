@@ -220,7 +220,7 @@ public final class Gst {
     
     /**
      * Schedules a task for execution on the gstreamer background
-     * {@link java.util.concurrent.Executor}.
+     * {@link Executor}.
      *
      * @param task the task to execute.
      */
@@ -230,7 +230,7 @@ public final class Gst {
     
     /**
      * Executes a task on the gstreamer background
-     * {@link java.util.concurrent.Executor}, waiting until the task completes
+     * {@link Executor}, waiting until the task completes
      * before returning.
      *
      * @param task the task to execute.
@@ -256,7 +256,7 @@ public final class Gst {
      * Initializes the GStreamer library.
      * <p> This is a shortcut if no arguments are to be passed to gstreamer.
      *
-     * @throws org.freedesktop.gstreamer.GstException
+     * @throws GstException
      */
     public static final void init() throws GstException {
         init("unknown", new String[] {});
@@ -280,7 +280,7 @@ public final class Gst {
      * @param args the java argument list.
      * @return the list of arguments with any gstreamer specific options stripped 
      * out.
-     * @throws org.freedesktop.gstreamer.GstException
+     * @throws GstException
      */
     public static synchronized final String[] init(String progname, String[] args) throws GstException {
         //
@@ -468,9 +468,11 @@ public final class Gst {
                     PadTemplate.class,
                     Plugin.class,
                     PluginFeature.class,
+                    Promise.class,
                     Query.class,
                     Registry.class,
                     Sample.class,
+                    WebRTCSessionDescription.class,
                     // ----------- Elements -------------
                     AppSink.class,
                     AppSrc.class,
