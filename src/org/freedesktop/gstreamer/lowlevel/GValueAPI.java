@@ -168,6 +168,9 @@ public interface GValueAPI extends Library {
                 Class<? extends NativeObject> cls = GstTypes.classFor(g_type);
                 if (cls != null) {
                     Pointer ptr = GVALUE_API.g_value_get_boxed(this);
+                    if ("org.freedesktop.gstreamer.WebRTCSessionDescription".equals(cls.getName())) {
+                        return new GstWebRTCSessionDescriptionAPI.GstWebRTCSessionDescription(ptr);
+                    }
                     return NativeObject.objectFor(ptr, cls, 1, true);
                 }
             }

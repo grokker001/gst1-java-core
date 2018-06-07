@@ -14,3 +14,7 @@
 # NetBeans Files #
 /nbproject/
 nb-configuration.xml
+
+# Intellij Files #
+.idea
+**/*.iml

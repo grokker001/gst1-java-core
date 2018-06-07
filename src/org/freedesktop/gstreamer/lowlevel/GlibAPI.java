@@ -176,4 +176,23 @@ public interface GlibAPI extends Library {
             });
         }
     }
+
+    public static final class GArray extends com.sun.jna.Structure {
+        public volatile Pointer data;
+        public volatile int len;
+        public GArray() {
+            clear();
+        }
+        public GArray(Pointer ptr) {
+            useMemory(ptr);
+            read();
+        }
+
+        @Override
+        protected List<String> getFieldOrder() {
+            return Arrays.asList(new String[]{
+                    "data", "len"
+            });
+        }
+    }
 }
