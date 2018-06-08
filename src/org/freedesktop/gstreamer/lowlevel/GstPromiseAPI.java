@@ -65,7 +65,7 @@ public interface GstPromiseAPI extends com.sun.jna.Library
     @CallerOwnsReturn
     Pointer ptr_gst_promise_new_with_change_func(GstCallback callback);
 
-    void gst_promise_wait(Promise promise);
+    int gst_promise_wait(Promise promise);
 
     void gst_promise_reply(Promise promise, Structure s);
 

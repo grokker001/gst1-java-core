@@ -45,9 +45,9 @@ public class Promise extends MiniObject
         return new Initializer(ptr, false, true);
     }
 
-    public void waitResult()
+    public int waitResult()
     {
-        GSTPROMISE_API.gst_promise_wait(this);
+        return GSTPROMISE_API.gst_promise_wait(this);
     }
 
     public void reply(final Structure s)
