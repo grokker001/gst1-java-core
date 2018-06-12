@@ -65,6 +65,12 @@ import static org.freedesktop.gstreamer.lowlevel.GObjectAPI.GOBJECT_API;
 public class Element extends GstObject {
     public static final String GTYPE_NAME = "GstElement";
 
+    private static volatile boolean isSettingState = false;
+
+    public static boolean isSettingState() {
+        return isSettingState;
+    }
+
     /** 
      * Creates a new instance of Element.  This constructor is used internally.
      * 
@@ -189,7 +195,10 @@ public class Element extends GstObject {
      * @return the status of the element's state change.
      */
     public StateChangeReturn setState(State state) {
-        return GSTELEMENT_API.gst_element_set_state(this, state);
+        isSettingState = true;
+        StateChangeReturn result =  GSTELEMENT_API.gst_element_set_state(this, state);
+        isSettingState = false;
+        return result;
     }
     
     /**
